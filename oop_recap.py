@@ -63,3 +63,97 @@ class Player:
 
     def __init__(self, name):
         self.name = name  # instance variable
+
+# implement methods in a class - A method is a group of statements that performs some operations and may or may not return a result
+
+
+class Employee3:
+    # defining the initializer
+    def __init__(self, ID=None, salary=None, department=None):
+        self.ID = ID
+        self.salary = salary
+        self.department = department
+
+    def tax(self):
+        return (self.salary * 0.2)
+
+    def salaryPerDay(self):
+        return (self.salary / 30)
+
+
+Jerry = Employee3(1234, 2500, "IT")
+
+print('ID:', Jerry.ID)
+print('Salary:', Jerry.salary)
+print('Department:', Jerry.department)
+print('Tax:', Jerry.tax())
+print('salary per day', Jerry.salaryPerDay())
+
+# method overloading - refers to making a method perform different operations based on the nature of its arguments
+
+# class methods - Class methods are accessed using the class name and can be accessed without creating a class object
+
+
+class Player2:
+    teamName = 'Texans'  # class variable
+
+    def __init__(self, name):
+        self.name = name  # creating instance variable
+
+    @classmethod  # class method decorator
+    def getTeamName(cls):  # cls is used to access class variable similar to self
+        return cls.teamName
+
+
+print(Player2.getTeamName())
+
+# static class methods - can be accessed using the class name or object name - They are used as utility functions inside the class or when we do not want the inherited classes to modify a method definition
+# It does not use a reference to the object or class, so we do not have to use self or cls. We can pass as many arguments as we want and use this method to perform any function without interfering with the instance or class variables
+
+
+class Player3:
+    teamName = 'Saints'  # class variable
+
+    def __init__(self, name):
+        self.name = name  # creating instance variable
+
+    @staticmethod  # static method decorator
+    def demo():
+        print('i am a static method')
+
+
+p1 = Player3('lol')
+p1.demo()
+Player3.demo()
+
+# access modifiers - public, private, protected
+# public - can be accessed from anywhere by default
+# private - can only be accessed from within the class
+
+
+class privateEmployee:
+    def __init__(self, ID, salary):
+        self.ID = ID
+        self.__salary = salary  # private property
+
+
+steve = privateEmployee(1234, 2500)
+print("ID: ", steve.ID)
+print("salary", steve.__salary)  # this will throw an error
+
+
+class privateMethod:
+    def __init__(self, ID, salary):
+        self.ID = ID
+        self.__salary = salary  # private property
+
+    def displaySalary(self):  # public method to access private property
+        print("Salary:", self.__salary)
+
+    def __displayID(self):  # private method
+        print("ID", self.ID)
+
+
+keith = privateMethod(1234, 2500)
+keith.displaySalary()
+keith.__displayID()  # this will throw an error
