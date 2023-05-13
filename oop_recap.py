@@ -139,7 +139,7 @@ class privateEmployee:
 
 steve = privateEmployee(1234, 2500)
 print("ID: ", steve.ID)
-print("salary", steve.__salary)  # this will throw an error
+# print("salary", steve.__salary)  # this will throw an error
 
 
 class privateMethod:
@@ -156,4 +156,65 @@ class privateMethod:
 
 keith = privateMethod(1234, 2500)
 keith.displaySalary()
-keith.__displayID()  # this will throw an error
+# keith.__displayID()  # this will throw an error
+
+
+# challenge - square numbers and return sum
+class Point:
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def sqSum(self):
+        return (self.x**2 + self.y**2 + self.z**2)
+
+
+sum = Point(1, 3, 5)
+print(sum.sqSum())
+
+# challenge 2
+
+
+class Student:
+    def __init__(self, name, phy, chem, bio):
+        self.name = name
+        self.phy = phy
+        self.chem = chem
+        self.bio = bio
+
+    def totalObtained(self):
+        return (self.phy + self.chem + self.bio)
+
+    def percentage(self):
+        return (self.totalObtained() / 300) * 100
+
+
+studentTest = Student('mark', 50, 100, 75)
+print(studentTest.totalObtained())
+print(studentTest.percentage())
+
+# challenge 3 - calculator
+
+
+class Calculator:
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+
+    def add(self):
+        return (self.num1 + self.num2)
+
+    def subtract(self):
+        return (self.num2 - self.num1)
+
+    def multiply(self):
+        return (self.num1 * self.num2)
+
+    def divide(self):
+        return (self.num2 / self.num1)
+
+
+#
+# information hiding
+#
