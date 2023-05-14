@@ -218,3 +218,50 @@ class Calculator:
 #
 # information hiding
 #
+
+# getters and setters - getters are used to get the value of a private property and setters are used to set the value of a private property
+class User:
+    def __init__(self, username=None):
+        self.__username = username
+
+    def setUsername(self, x):  # setter method
+        self.__username = x
+
+    def getUsername(self):
+        return (self.__username)  # getter method
+
+
+Joe = User('joe1')
+print('before setting', Joe.getUsername())
+Joe.setUsername('joe2')
+print('after setting', Joe.getUsername())
+
+# good example of getters and setters
+
+
+class User2:
+    def __init__(self, userName=None, password=None):
+        self.__userName = userName
+        self.__password = password
+
+    def login(self, userName, password):
+        if ((self.__userName.lower() == userName.lower())
+                and (self.__password == password)):
+            print(
+                "Access Granted against username:",
+                self.__userName.lower(),
+                "and password:",
+                self.__password)
+        else:
+            print("Invalid Credentials!")
+
+
+# created a new User object and stored the password and username
+Steve = User2("Steve", "12345")
+Steve.login("steve", "12345")  # Grants access because credentials are valid
+
+# does not grant access since the credentails are invalid
+Steve.login("steve", "6789")
+# Steve.__password  # compilation error will occur due to this line
+
+# code challenge - implement rectangle class with getters and setters
